@@ -3,30 +3,25 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { CheckCircle2, Zap, DollarSign, Star } from "lucide-react"
+import { Zap, Palette, Rocket } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const benefits = [
   {
-    icon: CheckCircle2,
-    title: "Banyak Pilihan Penyedia",
-    description: "Pilih dari ribuan penyedia jasa terverifikasi sesuai kebutuhan Anda",
-  },
-  {
     icon: Zap,
-    title: "Order Aman & Cepat",
-    description: "Proses pemesanan mudah dengan sistem keamanan berlapis",
+    title: "Development Cepat",
+    description: "Membangun website dengan cepat dan menerapkan fleksibel komponen",
   },
   {
-    icon: DollarSign,
-    title: "Harga Transparan",
-    description: "Tidak ada biaya tersembunyi, semua harga jelas sejak awal",
+    icon: Palette,
+    title: "Desain Responsif",
+    description: "Membangun website yang menerapkan desain yang modern serta responsif",
   },
   {
-    icon: Star,
-    title: "Rating & Testimoni Asli",
-    description: "Baca ulasan jujur dari pelanggan yang sudah menggunakan jasa",
+    icon: Rocket,
+    title: "Performa Tinggi",
+    description: "Membangun website dengan performa yang tinggi serta aksesibilitas yang luas",
   },
 ]
 
@@ -37,38 +32,32 @@ const BenefitsSection = () => {
   useEffect(() => {
     const cards = cardsRef.current.filter((card): card is HTMLDivElement => card !== null)
 
-    const tl = gsap.timeline({
+    gsap.set(cards, { opacity: 0, y: 30 })
+
+    gsap.to(cards, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top center",
+        start: "top 80%",
       },
-    })
-
-    cards.forEach((card, index) => {
-      tl.from(
-        card,
-        {
-          opacity: 0,
-          scale: 0.8,
-          duration: 0.5,
-          ease: "back.out",
-        },
-        index * 0.15,
-      )
     })
   }, [])
 
   return (
     <section ref={sectionRef} id="benefit" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Keunggulan <span className="text-blue-600">GudangJasa</span>
-          </h2>
-          <p className="text-xl text-gray-600">Mengapa memilih kami untuk kebutuhan jasa profesional Anda</p>
-        </div>
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Keunggulan <span className="text-blue-600">Pembuatan Website</span>
+        </h2>
+        <p className="text-lg text-gray-600 mb-16">
+          Kami fokus memberikan hasil terbaik untuk setiap proyek website yang kami bangun
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon
             return (
@@ -77,17 +66,15 @@ const BenefitsSection = () => {
                 ref={(el) => {
                   cardsRef.current[index] = el
                 }}
-                className="p-8 bg-gradient-to-br from-blue-50 to-white rounded-xl border-2 border-blue-100 hover:border-blue-600 transition-colors duration-300"
+                className="bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-3xl p-8 shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <Icon className="w-12 h-12 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                  </div>
+                <div className="bg-white/20 p-4 rounded-full mb-6">
+                  <Icon className="w-10 h-10 text-white" />
                 </div>
+                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-sm text-white/90 leading-relaxed max-w-xs">
+                  {benefit.description}
+                </p>
               </div>
             )
           })}

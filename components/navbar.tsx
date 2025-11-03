@@ -43,7 +43,7 @@ const Navbar = () => {
                 className="object-contain w-full h-full"
               />
             </div>
-            <span className="hidden sm:inline font-semi-bold text-xl text-gray-900">
+            <span className="hidden sm:inline font-bold text-xl text-gray-900">
               GudangJasa
             </span>
           </Link>

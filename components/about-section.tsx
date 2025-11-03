@@ -45,27 +45,24 @@ const AboutSection = () => {
               Tentang <span className="text-blue-600">GudangJasa</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              GudangJasa adalah platform revolusioner yang menghubungkan jutaan pelanggan dengan ribuan penyedia jasa
-              profesional terpercaya. Kami berkomitmen untuk memberikan pengalaman terbaik dengan keamanan, kecepatan,
-              dan transparansi.
+              GudangJasa adalah penyedia jasa pembuatan website profesional yang berfokus pada desain modern, performa optimal, dan keamanan tinggi.
+              Kami membantu bisnis, UMKM, dan personal brand membangun kehadiran digital yang menarik dan terpercaya.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Dengan teknologi terdepan dan sistem verifikasi ketat, kami memastikan setiap transaksi aman dan
-              memuaskan. Visi kami adalah menjadi ekosistem jasa digital terbesar dan paling terpercaya di Asia
-              Tenggara.
+              Dengan tim berpengalaman dan dukungan teknologi terbaru, kami siap menciptakan website yang cepat, responsif, dan mudah dikelola.
             </p>
             <div className="pt-4 space-y-3">
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
-                <p className="text-gray-700">Lebih dari 50,000 penyedia jasa terverifikasi</p>
+                <p className="text-gray-700">50+ proyek website berhasil diselesaikan</p>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
-                <p className="text-gray-700">1 juta pelanggan puas setiap bulannya</p>
+                <p className="text-gray-700">100% kepuasan klien</p>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
-                <p className="text-gray-700">Tersedia di 15 kota besar Indonesia</p>
+                <p className="text-gray-700">Layanan aktif di seluruh Indonesia</p>
               </div>
             </div>
           </div>
