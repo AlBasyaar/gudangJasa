@@ -64,7 +64,7 @@ const HeroSection = () => {
           ref={subheadlineRef}
           className="text-xl md:text-2xl text-gray-600 mb-8 text-balance"
         >
-          Solusi praktis untuk kebutuhan profesional Anda. Mudah, cepat, dan aman.
+          GudangJasa adalah Jasa Pembuatan Website dengan menerapkan desain yang kreatif serta modern
         </p>
 
         <div
