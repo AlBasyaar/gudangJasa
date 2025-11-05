@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -13,6 +12,7 @@ const ContactSection = () => {
   const sectionRef = useRef(null)
   const formRef = useRef(null)
   const infoRef = useRef(null)
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,17 +29,18 @@ const ContactSection = () => {
 
     tl.from(formRef.current, {
       opacity: 0,
-      x: -50,
+      x: -60,
       duration: 0.6,
       ease: "power3.out",
     }).from(
       infoRef.current,
       {
         opacity: 0,
-        x: 50,
+        x: 60,
         duration: 0.6,
+        ease: "power3.out",
       },
-      "-=0.6",
+      "-=0.4",
     )
   }, [])
 
@@ -54,7 +55,6 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    // Reset form
     setFormData({ name: "", email: "", message: "" })
     alert("Terima kasih! Pesan Anda telah dikirim.")
   }
@@ -69,9 +69,11 @@ const ContactSection = () => {
           <p className="text-xl text-gray-600">Kami siap membantu Anda kapan saja</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+         
           <form ref={formRef} onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg space-y-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Kirim Pesan</h3>
+
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">Nama Lengkap</label>
               <input
@@ -119,41 +121,39 @@ const ContactSection = () => {
             </button>
           </form>
 
-          {/* Contact Info */}
-          <div ref={infoRef} className="space-y-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4">
-                <Mail className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-600">support@gudangjasa.com</p>
-                  <p className="text-gray-600">business@gudangjasa.com</p>
-                </div>
+          <div ref={infoRef} className="bg-white p-8 rounded-xl shadow-lg space-y-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Informasi Kontak</h3>
+
+            {/* Email */}
+            <div className="flex items-start space-x-4">
+              <Mail className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
+                <p className="text-gray-600">support@gudangjasa.com</p>
+                <p className="text-gray-600">business@gudangjasa.com</p>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4">
-                <Phone className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Telepon</h3>
-                  <p className="text-gray-600">+62 812 3456 7890</p>
-                  <p className="text-gray-600">+62 21 5555 6666</p>
-                </div>
+            {/* Telepon */}
+            <div className="flex items-start space-x-4">
+              <Phone className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Telepon</h4>
+                <p className="text-gray-600">+62 812 3456 7890</p>
+                <p className="text-gray-600">+62 21 5555 6666</p>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">Alamat</h3>
-                  <p className="text-gray-600">
-                    Jl. Merdeka No. 123, Menteng
-                    <br />
-                    Jakarta Pusat, 12190
-                  </p>
-                </div>
+            {/* Alamat */}
+            <div className="flex items-start space-x-4">
+              <MapPin className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-1">Alamat</h4>
+                <p className="text-gray-600">
+                  Jl. Merdeka No. 123, Menteng
+                  <br />
+                  Jakarta Pusat, 12190
+                </p>
               </div>
             </div>
           </div>

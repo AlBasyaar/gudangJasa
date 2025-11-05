@@ -64,19 +64,19 @@ const AboutSection = () => {
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
                 <p className="text-gray-700 text-sm sm:text-base">
-                  50+ proyek website berhasil diselesaikan
+                  Telah berhasil menyelesaikan beberapa proyek website
                 </p>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
                 <p className="text-gray-700 text-sm sm:text-base">
-                  100% kepuasan klien
+                  Menjaga kepercayaan dan kepuasan klien
                 </p>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <div className="w-3 h-3 bg-blue-600 rounded-full" />
                 <p className="text-gray-700 text-sm sm:text-base">
-                  Layanan aktif di seluruh Indonesia
+                  Melayani klien dari berbagai wilayah Indonesia
                 </p>
               </div>
             </div>
@@ -89,7 +89,6 @@ const AboutSection = () => {
           >
             <img
               src="https://res.cloudinary.com/dr5pehdsw/image/upload/v1762302902/Frame_1_dodhfv.png"
-              alt="About Us Illustration"
               className="w-full h-full object-contain md:object-cover"
             />
           </div>
