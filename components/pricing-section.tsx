@@ -84,7 +84,7 @@ const PricingSection: React.FC = () => {
           {
             opacity: 1,
             scale: 1.05,
-            y: -20, // naik tapi tidak terlalu tinggi
+            y: -20, // naik sedikit
             duration: 0.6,
             delay: index * 0.12,
             ease: "power3.out",
@@ -138,19 +138,34 @@ const PricingSection: React.FC = () => {
   }
 
   return (
-    <section ref={sectionRef} id="harga" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="harga"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Paket <span className="text-blue-600">Harga</span>
           </h2>
-          <p className="text-xl text-gray-600">Pilih paket yang sesuai dengan kebutuhan Anda</p>
+          <p className="text-xl text-gray-600">
+            Pilih paket yang sesuai dengan kebutuhan Anda
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start relative">
+        <div
+          className="
+            grid grid-cols-1 
+            sm:grid-cols-2 md:grid-cols-3 
+            gap-8 items-start relative
+          "
+        >
           {plans.map((plan, index) => {
             const isHighlighted = !!plan.highlighted
             const zClass = isHighlighted ? "z-20" : "z-10"
+            const translateClass = isHighlighted
+              ? "md:-translate-y-5"
+              : "md:translate-y-0"
 
             return (
               <div
@@ -160,11 +175,11 @@ const PricingSection: React.FC = () => {
                 }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${
-                  isHighlighted
+                className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${translateClass}
+                  ${isHighlighted
                     ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl"
-                    : "bg-white border border-gray-200 text-gray-900 shadow-md"
-                }`}
+                    : "bg-white border border-gray-200 text-gray-900 shadow-md"}
+                `}
               >
                 {isHighlighted && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold shadow-md z-30">
@@ -172,14 +187,28 @@ const PricingSection: React.FC = () => {
                   </div>
                 )}
 
-                <h3 className={`text-2xl font-bold mb-2 ${isHighlighted ? "text-white" : "text-gray-900"}`}>
+                <h3
+                  className={`text-2xl font-bold mb-2 ${
+                    isHighlighted ? "text-white" : "text-gray-900"
+                  }`}
+                >
                   {plan.name}
                 </h3>
 
-                <p className={`mb-6 ${isHighlighted ? "text-blue-100" : "text-gray-600"}`}>{plan.description}</p>
+                <p
+                  className={`mb-6 ${
+                    isHighlighted ? "text-blue-100" : "text-gray-600"
+                  }`}
+                >
+                  {plan.description}
+                </p>
 
                 <div className="mb-8">
-                  <span className={`text-5xl font-extrabold ${isHighlighted ? "text-white" : "text-gray-900"}`}>
+                  <span
+                    className={`text-5xl font-extrabold ${
+                      isHighlighted ? "text-white" : "text-gray-900"
+                    }`}
+                  >
                     {plan.price}
                   </span>
                 </div>
@@ -187,7 +216,9 @@ const PricingSection: React.FC = () => {
                 <button
                   onClick={(e) => handleClick(e, plan.name)}
                   className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 ${
-                    isHighlighted ? "bg-white text-blue-600" : "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
+                    isHighlighted
+                      ? "bg-white text-blue-600"
+                      : "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
                   }`}
                 >
                   {plan.cta}
@@ -196,8 +227,21 @@ const PricingSection: React.FC = () => {
                 <div className="space-y-4">
                   {plan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
-                      <Check size={20} className={isHighlighted ? "text-blue-100 mt-[3px]" : "text-blue-600 mt-[3px]"} />
-                      <span className={isHighlighted ? "text-blue-50" : "text-gray-700"}>{feature}</span>
+                      <Check
+                        size={20}
+                        className={
+                          isHighlighted
+                            ? "text-blue-100 mt-[3px]"
+                            : "text-blue-600 mt-[3px]"
+                        }
+                      />
+                      <span
+                        className={
+                          isHighlighted ? "text-blue-50" : "text-gray-700"
+                        }
+                      >
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
