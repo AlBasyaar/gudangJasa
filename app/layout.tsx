@@ -10,10 +10,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "GudangJasa - Platform Jasa Profesional Terpercaya",
+  title: "GudangJasa Web - Bangun Website dengan Cepat & Mudah",
   description:
-    "Temukan jasa profesional terbaik dengan mudah, cepat, dan aman. GudangJasa menghubungkan Anda dengan penyedia jasa berkualitas.",
-    generator: 'v0.app'
+    "GudangJasa Web menyediakan jasa pembuatan website profesional dengan dukungan hosting cepat, aman, dan terpercaya untuk bisnis Anda.",
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
