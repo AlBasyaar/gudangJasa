@@ -15,25 +15,20 @@ const AboutSection = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top center",
-        end: "center center",
-        scrub: 1,
+        start: "top 80%", // mulai sedikit sebelum di tengah viewport
+        end: "bottom center",
+        scrub: false, // biar halus, bukan bergantung scroll
       },
     })
 
-    tl.from(textRef.current, {
-      opacity: 1,
-      x: -50,
-      duration: 0.8,
-    }).from(
-      imageRef.current,
-      {
-        opacity: 1,
-        x: 50,
-        duration: 0.8,
-      },
-      "-=0.8",
-    )
+    // animasi muncul bersamaan
+    tl.from([textRef.current, imageRef.current], {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0, // muncul barengan
+    })
   }, [])
 
   return (
@@ -90,6 +85,7 @@ const AboutSection = () => {
             <img
               src="https://res.cloudinary.com/dr5pehdsw/image/upload/v1762302902/Frame_1_dodhfv.png"
               className="w-full h-full object-contain md:object-cover"
+              alt="Tentang GudangJasa"
             />
           </div>
         </div>

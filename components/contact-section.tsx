@@ -55,7 +55,7 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const phoneNumber = "6282169833829" // Nomor WhatsApp tanpa tanda +
+    const phoneNumber = "6282169833829"
     const message = `Halo, saya ${formData.name}.\nEmail: ${formData.email}\nPesan: ${formData.message}`
     const encodedMessage = encodeURIComponent(message)
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`

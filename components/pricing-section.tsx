@@ -30,7 +30,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis",
     ],
-    cta: "Pilih Pemula",
+    cta: "Kirim Pesan",
   },
   {
     name: "Menengah",
@@ -45,7 +45,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis/Dinamis",
     ],
-    cta: "Pilih Menengah",
+    cta: "Kirim Pesan",
     highlighted: true,
   },
   {
@@ -61,7 +61,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis/Dinamis",
     ],
-    cta: "Pilih Profesional",
+    cta: "Kirim Pesan",
   },
 ]
 
@@ -84,7 +84,7 @@ const PricingSection: React.FC = () => {
           {
             opacity: 1,
             scale: 1.05,
-            y: -20, // naik sedikit
+            y: -20, // efek naik di desktop
             duration: 0.6,
             delay: index * 0.12,
             ease: "power3.out",
@@ -157,15 +157,14 @@ const PricingSection: React.FC = () => {
           className="
             grid grid-cols-1 
             sm:grid-cols-2 md:grid-cols-3 
-            gap-8 items-start relative
+            gap-10 items-start relative
           "
         >
           {plans.map((plan, index) => {
             const isHighlighted = !!plan.highlighted
             const zClass = isHighlighted ? "z-20" : "z-10"
-            const translateClass = isHighlighted
-              ? "md:-translate-y-5"
-              : "md:translate-y-0"
+            const translateClass = isHighlighted ? "md:-translate-y-5" : "md:translate-y-0"
+            const mobileSpacing = isHighlighted ? "mt-8 sm:mt-0" : ""
 
             return (
               <div
@@ -175,11 +174,19 @@ const PricingSection: React.FC = () => {
                 }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${translateClass}
-                  ${isHighlighted
-                    ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl"
-                    : "bg-white border border-gray-200 text-gray-900 shadow-md"}
+                className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${translateClass} ${mobileSpacing}
+                  ${
+                    isHighlighted
+                      ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-200/60"
+                      : "bg-white border border-gray-200 text-gray-900 shadow-xl shadow-gray-300/50"
+                  }
+                hover:shadow-2xl hover:-translate-y-2 md:hover:-translate-y-3
                 `}
+                style={{
+                  boxShadow: isHighlighted
+                    ? "0 20px 40px rgba(37, 99, 235, 0.25)"
+                    : "0 15px 30px rgba(0, 0, 0, 0.08)",
+                }}
               >
                 {isHighlighted && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold shadow-md z-30">
@@ -221,7 +228,7 @@ const PricingSection: React.FC = () => {
                       : "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
                   }`}
                 >
-                  {plan.cta}
+                  Kirim Pesan
                 </button>
 
                 <div className="space-y-4">
